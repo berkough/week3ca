@@ -1,42 +1,47 @@
-// Week 3 Coding Assignment
+// WEEK 3 CODING ASSIGNMENT \\
+
+let sum = 0; // Define this here, we're going to keep reusing it.
+
+// Step 1: 
 let ages = [3, 9, 23, 64, 2, 8, 28, 93];
-console.log("Subtracting the first element of the array from the last: "+(ages.slice(-1)-ages.slice(0,1)));
-ages.push(45);
+console.log("Subtracting the first element of the array from the last: "+(ages.slice(-1)-ages.slice(0,1))); // Step 1a
+ages.push(45); // Step 1b
 console.log("... and after pushing 45 to the end of the array: "+(ages.slice(-1)-ages.slice(0,1)));
 
-// A variable to hold the sum of our ages.
-let sum = 0;
-
-// Now to Loop through the array and add the values. 
+// Step 1c:
 for (i = 0; i < ages.length; i++){
     sum += ages[i];
 }
-// Define the average as the total divided by the number of ages.
 let averageAge = (sum/ages.length).toFixed(2);
 console.log("The average age is: "+averageAge);
 
-//Our Array of names.
+// Step 2:
 let names = ['Sam','Tommy','Tim', 'Sally', 'Buck', 'Bob'];
 
-//We can re-use the sum variable, just set it back to zero.
-sum = 0;
-
-//Let's loop through each of the names and count lengths
+// Step 2a
+sum = 0; //Set sum back to zero.
 for (i = 0; i < names.length; i++){
     sum += names[i].length;
 }
-
-//Let's defind out average name length.
 let avNameLength = (sum/names.length).toFixed(2);
 console.log("The average length of the names in our array is: "+avNameLength);
 
-//We need a variable to hold the concatenation of our names from the names array.
-let superString = '';
+//Alternatively, we can use .map() and reduce:
+sum = 0; //Set sum back to zero.
+let names2 = names.map(function(element){
+    return element.length;
+});
+sum = names2.reduce(function(accumlator, currentValue){
+    return accumlator + currentValue;
+});
+let avNameLength2 = (sum/names.length).toFixed(2);
+console.log("The alternative for average name length: "+avNameLength2);
 
-//Time to loop through the names and dump them to our superString variable.
+// Step 2b
+let superString = '';
 for (i = 0; i < names.length; i++){
     superString += names[i] + ' ';
 }
-
-//Now we want to output the contents of superString.
 console.log("Here is a concatenated string of our names: "+superString);
+
+// Step 5
