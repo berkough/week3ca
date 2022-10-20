@@ -118,5 +118,12 @@ console.log(arrayAverageCompare(testArray2,testArray));
 
 // ---------- Step 12 ---------- \\
 function willBuyDrink (isHotOutside, moneyInPocket){
-    
+    if (isHotOutside === true && moneyInPocket >= 10.50){
+        return true;
+    } else {
+        return false;
+    }
 }
+console.log(willBuyDrink(true,11.50));
+
+// ---------- Step 13 ---------- \\
