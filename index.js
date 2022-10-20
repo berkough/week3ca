@@ -69,3 +69,54 @@ function repeatWord(word, n){
     return word.repeat(n);
 }
 console.log(repeatWord('Hello', 3));
+
+// ---------- Step 8 ---------- \\
+function fullName (firstName, lastName){
+    return firstName + ' ' + lastName;
+}
+
+// ---------- Step 9 ---------- \\
+function oneHundred (array){
+    array = array.reduce(function(accumlator, currentValue){
+        return accumlator + currentValue;
+    });
+    if (array > 100){
+        return true;
+    } else {
+        return false;
+    }
+}
+let testArray = [10,5,5,15,10,2.5,12.5,20,5,16];
+console.log(oneHundred(testArray));
+
+// ---------- Step 10 ---------- \\
+function returnAverage (array){
+    let sum = 0;
+    for (i = 0; i < array.length; i++){
+        sum += array[i];
+    }
+    return sum/array.length;
+}
+console.log(returnAverage(testArray));
+
+// ---------- Step 11 ---------- \\
+let testArray2 = [13,5,100,15,10,2.5,12.5,20,5,16];
+console.log(returnAverage(testArray2));
+
+function arrayAverageCompare (array1, array2){
+    let arrayS1 = 0;
+    let arrayS2 = 0;
+    for (i = 0; i < array1.length; i++){
+        arrayS1 += array1[i];
+    }
+    for (i = 0; i < array2.length; i++){
+        arrayS2 += array2[i];
+    }
+    return (arrayS1/array1.length) > (arrayS2/array2.length);
+}
+console.log(arrayAverageCompare(testArray2,testArray));
+
+// ---------- Step 12 ---------- \\
+function willBuyDrink (isHotOutside, moneyInPocket){
+    
+}
