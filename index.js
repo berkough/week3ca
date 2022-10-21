@@ -4,9 +4,9 @@ let sum = 0; // Define this here, we're going to keep reusing it.
 
 // ---------- Step 1: ---------- \\
 let ages = [3, 9, 23, 64, 2, 8, 28, 93];
-console.log("Subtracting the first element of the array from the last: "+(ages.slice(-1)-ages.slice(0,1))); // Step 1a
+console.log("Subtracting the first element of the array from the last: "+(ages.slice(-1)-ages[0])); // Step 1a
 ages.push(45); // Step 1b
-console.log("... and after pushing 45 to the end of the array: "+(ages.slice(-1)-ages.slice(0,1)));
+console.log("... and after pushing 45 to the end of the array: "+(ages.slice(-1)-ages[0]));
 
 // Step 1c:
 for (i = 0; i < ages.length; i++){
@@ -71,19 +71,17 @@ function repeatWord(word, n){
 console.log(repeatWord('Hello', 3));
 
 // ---------- Step 8 ---------- \\
-function fullName (firstName, lastName){
+function fullName(firstName, lastName){
     return firstName + ' ' + lastName;
 }
 
 // ---------- Step 9 ---------- \\
-function oneHundred (array){
+function oneHundred(array){
     array = array.reduce(function(accumlator, currentValue){
         return accumlator + currentValue;
     });
     if (array > 100){
         return true;
-    } else {
-        return false;
     }
 }
 let testArray = [10,5,5,15,10,2.5,12.5,20,5,16];
@@ -120,10 +118,21 @@ console.log(arrayAverageCompare(testArray2,testArray));
 function willBuyDrink (isHotOutside, moneyInPocket){
     if (isHotOutside === true && moneyInPocket >= 10.50){
         return true;
-    } else {
-        return false;
     }
 }
 console.log(willBuyDrink(true,11.50));
 
 // ---------- Step 13 ---------- \\
+function magic8Ball(question){
+    let responses = [
+        'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes definitely.', 'You may rely on it.', 'As I see it, yes.', 'Most likely.', 'Outlook good.', 'Yes.', 'Signs point to yes.', 'Reply hazy, try again.', 'Ask again later.', 'Better not tell you now.', 'Cannot predict now.', 'Concentrate and ask again.', 'Don\'t count on it.', 'My reply is no.', 'My sources say no.', 'Outlook not so good.', 'Very doubtful.'
+    ];
+    function getRandomInt(max){
+        return Math.floor(Math.random()*max);
+    }
+    if (typeof question != 'string'){
+        return "I don't understand what you're tyring to say.";
+    }
+    return responses[getRandomInt(responses.length)];
+}
+console.log(magic8Ball('Will this function get me an A for this project?'));
